@@ -66,7 +66,7 @@ WPLANGUAGE=en
 WPUSER=wpuser
 WPTITLE=DDN
 
-SITEDOMAIN=`hostname -I`
+SITEDOMAIN=`dig +short myip.opendns.com @resolver1.opendns.com`
 EMAIL=info@designdevelopnow.com
 
 #All lsphp versions, keep using two digits to identify a version!!!
