@@ -66,7 +66,7 @@ WPLANGUAGE=en
 WPUSER=wpuser
 WPTITLE=DDN
 
-SITEDOMAIN=*
+SITEDOMAIN=`hostname -I`
 EMAIL=info@designdevelopnow.com
 
 #All lsphp versions, keep using two digits to identify a version!!!
