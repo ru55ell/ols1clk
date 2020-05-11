@@ -478,35 +478,31 @@ function install_wpcli
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x wp-cli.phar
     sudo mv wp-cli.phar /usr/local/bin/wp
+
+    sudo ln -s /usr/local/lsws/lsphp73/bin/php /usr/bin/php
 }
 
 function ddn_wordpress
 {
-    apt install unzip
+    wp plugin install https://github.com/elementor/elementor/archive/v2.9.8.zip --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
 
-    wget --quiet https://github.com/elementor/elementor/archive/v2.9.8.zip	
-    unzip -q  v2.9.8.zip
-    mv elementor-2.9.8 $WORDPRESSPATH/wp-content/plugins/
+    wp plugin install https://downloads.wordpress.org/plugin/wp-smushit.3.6.1.zip --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
 
-    wget --quiet https://downloads.wordpress.org/plugin/wp-smushit.3.6.1.zip	
-    unzip -q  wp-smushit.3.6.1.zip
-    mv wp-smushit $WORDPRESSPATH/wp-content/plugins/
+    wp plugin install https://downloads.wordpress.org/plugin/swift-performance-lite.zip --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
 
-    wget --quiet https://downloads.wordpress.org/plugin/swift-performance-lite.zip	
-    unzip -q  swift-performance-lite.zip
-    mv swift-performance-lite $WORDPRESSPATH/wp-content/plugins/
+    wp plugin install https://downloads.wordpress.org/plugin/updraftplus.1.16.23.zip --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
 
-    wget --quiet https://downloads.wordpress.org/plugin/updraftplus.1.16.23.zip	
-    unzip -q  updraftplus.1.16.23.zip
-    mv updraftplus $WORDPRESSPATH/wp-content/plugins/
+    wp theme install https://downloads.wordpress.org/theme/astra.2.4.3.zip --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
 
-    wget --quiet https://downloads.wordpress.org/theme/astra.2.4.3.zip	
-    unzip -q  astra.2.4.3.zip
-    mv astra $WORDPRESSPATH/wp-content/themes/
+    rm -rf $WORDPRESSPATH/wp-content/themes/twentynineteen
+    rm -rf $WORDPRESSPATH/wp-content/themes/twentyseventeen
+    rm -rf $WORDPRESSPATH/wp-content/themes/twentytwenty
 
-    rm *.zip
+    rm -rf $WORDPRESSPATH/wp-content/plugins/akismet
+    rm -f $WORDPRESSPATH/wp-content/plugins/hello.php
+
+    wp import example.wordpress.2016-06-21.xml --authors=create
 }
-
 
 function test_mysql_password
 {
