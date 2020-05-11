@@ -44,30 +44,30 @@ MYSQLINSTALLED=
 TESTGETERROR=no
 
 getRandPassword
-ADMINPASSWORD=$TEMPRANDSTR
+ADMINPASSWORD=ddnpass
 getRandPassword
-ROOTPASSWORD=$TEMPRANDSTR
+ROOTPASSWORD=ddnpass
 getRandPassword
-USERPASSWORD=$TEMPRANDSTR
+USERPASSWORD=ddnpass
 getRandPassword
-WPPASSWORD=$TEMPRANDSTR
+WPPASSWORD=ddnpass
 
-DATABASENAME=olsdbname
-USERNAME=olsdbuser
+DATABASENAME=ddn_wordpress
+USERNAME=ddnuser
 
 WORDPRESSPATH=$SERVER_ROOT/wordpress
 WPPORT=80
 SSLWPPORT=443
 
 INSTALLWORDPRESS=0
-INSTALLWORDPRESSPLUS=0
+INSTALLWORDPRESSPLUS=1
 FORCEYES=0
 WPLANGUAGE=en
 WPUSER=wpuser
-WPTITLE=MySite
+WPTITLE=DDN
 
 SITEDOMAIN=*
-EMAIL=
+EMAIL=info@designdevelopnow.com
 
 #All lsphp versions, keep using two digits to identify a version!!!
 #otherwise, need to update the uninstall function which will check the version
@@ -91,7 +91,7 @@ CSR=example.csr
 KEY=example.key
 CERT=example.crt
 
-MYGITHUBURL=https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh
+MYGITHUBURL=https://github.com/ru55ell/ols1clk.git
 
 function echoY
 {
