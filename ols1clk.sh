@@ -501,7 +501,7 @@ function ddn_wordpress
     rm -rf $WORDPRESSPATH/wp-content/plugins/akismet
     rm -f $WORDPRESSPATH/wp-content/plugins/hello.php
 
-    wp import example.wordpress.2016-06-21.xml --authors=create
+    wp import https://raw.githubusercontent.com/ru55ell/ols1clk/master/ddnstartersite.WordPress.2020-05-11.xml --authors=create --quiet
 }
 
 function test_mysql_password
@@ -1561,6 +1561,7 @@ if [ "x$INSTALLWORDPRESS" = "x1" ] ; then
     if [ "x$WORDPRESSINSTALLED" != "x1" ] ; then
         install_wordpress
         setup_wordpress
+        install_wpcli
         ddn_wordpress
 
         if [ "x$TESTPASSWORDERROR" = "x1" ] ; then
