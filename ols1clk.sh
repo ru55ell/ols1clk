@@ -473,6 +473,14 @@ function setup_wordpress
 }
 
 
+function install_wpcli
+{
+    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    chmod +x wp-cli.phar
+    sudo mv wp-cli.phar /usr/local/bin/wp
+}
+
+
 function test_mysql_password
 {
     CURROOTPASSWORD=$ROOTPASSWORD
@@ -1530,6 +1538,7 @@ if [ "x$INSTALLWORDPRESS" = "x1" ] ; then
     if [ "x$WORDPRESSINSTALLED" != "x1" ] ; then
         install_wordpress
         setup_wordpress
+        install_wpcli
 
         if [ "x$TESTPASSWORDERROR" = "x1" ] ; then
             echoY "MySQL setup bypassed, can not get root password."
