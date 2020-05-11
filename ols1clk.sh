@@ -480,6 +480,33 @@ function install_wpcli
     sudo mv wp-cli.phar /usr/local/bin/wp
 }
 
+function ddn_wordpress
+{
+    apt install unzip
+
+    wget --quiet https://github.com/elementor/elementor/archive/v2.9.8.zip	
+    unzip -q  v2.9.8.zip
+    mv elementor-2.9.8 $WORDPRESSPATH/wp-content/plugins/
+
+    wget --quiet https://downloads.wordpress.org/plugin/wp-smushit.3.6.1.zip	
+    unzip -q  wp-smushit.3.6.1.zip
+    mv wp-smushit $WORDPRESSPATH/wp-content/plugins/
+
+    wget --quiet https://downloads.wordpress.org/plugin/swift-performance-lite.zip	
+    unzip -q  swift-performance-lite.zip
+    mv swift-performance-lite $WORDPRESSPATH/wp-content/plugins/
+
+    wget --quiet https://downloads.wordpress.org/plugin/updraftplus.1.16.23.zip	
+    unzip -q  updraftplus.1.16.23.zip
+    mv updraftplus $WORDPRESSPATH/wp-content/plugins/
+
+    wget --quiet https://downloads.wordpress.org/theme/astra.2.4.3.zip	
+    unzip -q  astra.2.4.3.zip
+    mv astra $WORDPRESSPATH/wp-content/themes/
+
+    rm *.zip
+}
+
 
 function test_mysql_password
 {
@@ -1538,7 +1565,7 @@ if [ "x$INSTALLWORDPRESS" = "x1" ] ; then
     if [ "x$WORDPRESSINSTALLED" != "x1" ] ; then
         install_wordpress
         setup_wordpress
-        install_wpcli
+        ddn_wordpress
 
         if [ "x$TESTPASSWORDERROR" = "x1" ] ; then
             echoY "MySQL setup bypassed, can not get root password."
