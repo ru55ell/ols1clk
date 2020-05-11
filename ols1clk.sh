@@ -502,6 +502,11 @@ function ddn_wordpress
 
     rm -rf $WORDPRESSPATH/wp-content/plugins/akismet
     rm -f $WORDPRESSPATH/wp-content/plugins/hello.php
+
+    wget https://raw.githubusercontent.com/ru55ell/ols1clk/master/ddnstartersite.WordPress.2020-05-11.xml -O "$SERVER_ROOT"/ddnstartersite.WordPress.2020-05-11.xml
+
+    wp import "$SERVER_ROOT"/ddnstartersite.WordPress.2020-05-11.xml --authors=create --quiet --allow-root --path=/usr/local/lsws/wordpress
+
 }
 
 function test_mysql_password
