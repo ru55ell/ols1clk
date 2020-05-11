@@ -492,6 +492,8 @@ function ddn_wordpress
 
     wp plugin install https://downloads.wordpress.org/plugin/updraftplus.1.16.23.zip --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
 
+    wp plugin install wordpress-importer --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
+
     wp theme install https://downloads.wordpress.org/theme/astra.2.4.3.zip --activate --quiet --allow-root --path=/usr/local/lsws/wordpress
 
     rm -rf $WORDPRESSPATH/wp-content/themes/twentynineteen
