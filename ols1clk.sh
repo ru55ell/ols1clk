@@ -506,10 +506,10 @@ function ddn_wordpress
    wp user create russadmin russell.taylor@designdevelopnow.com --role=administrator --allow-root --quiet --user_pass=ddnpass
    wp user create jdavis jaime.davis@designdevelopnow.com --role=administrator --allow-root --quiet --user_pass=ddnpass
 
-   wp rewrite structure '/%postname%/' --quiet
-   wp rewrite flush --quiet
+   wp rewrite structure '/%postname%/' --quiet --allow-root --path=/usr/local/lsws/wordpress
+   wp rewrite flush --quiet --allow-root --path=/usr/local/lsws/wordpress
 
-   wp option set blog_public 0 --quiet
+   wp option set blog_public 0 --quiet --allow-root --path=/usr/local/lsws/wordpress
 }
 
 function test_mysql_password
