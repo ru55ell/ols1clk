@@ -503,10 +503,13 @@ function ddn_wordpress
     rm -rf $WORDPRESSPATH/wp-content/plugins/akismet
     rm -f $WORDPRESSPATH/wp-content/plugins/hello.php
 
-    wget https://raw.githubusercontent.com/ru55ell/ols1clk/master/ddnstartersite.WordPress.2020-05-11.xml -O ./ddnstartersite.WordPress.2020-05-11.xml
+   wp user create russadmin russell.taylor@designdevelopnow.com --role=administrator --allow-root --quiet --user_pass=ddnpass
+   wp user create jdavis jaime.davis@designdevelopnow.com --role=administrator --allow-root --quiet --user_pass=ddnpass
 
-    wp import ./ddnstartersite.WordPress.2020-05-11.xml --authors=create --quiet --allow-root --path=/usr/local/lsws/wordpress
+   wp rewrite structure '/%postname%/' --quiet
+   wp rewrite flush --quiet
 
+   wp option set blog_public 0 --quiet
 }
 
 function test_mysql_password
