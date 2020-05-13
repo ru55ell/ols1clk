@@ -1580,9 +1580,6 @@ if [ "x$INSTALLWORDPRESS" = "x1" ] ; then
 
     config_server_wp
     echo "mysql root password is [$ROOTPASSWORD]." >> $SERVER_ROOT/password
-
-    install_wpcli
-    ddn_wordpress
 else
     #normal ols installation without wordpress
     config_server
@@ -1637,6 +1634,9 @@ if [ "x$INSTALLWORDPRESSPLUS" = "x0" ] && [ "x$INSTALLWORDPRESS" = "x1" ] ; then
     echoG "Please access http://localhost:$WPPORT/ to finish setting up your WordPress site."
     echoG "And also you may want to activate the LiteSpeed Cache plugin to get better performance."
 fi
+
+install_wpcli
+ddn_wordpress
 
 echo
 echoY "Testing ..."
