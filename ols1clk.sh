@@ -1569,8 +1569,6 @@ if [ "x$INSTALLWORDPRESS" = "x1" ] ; then
     if [ "x$WORDPRESSINSTALLED" != "x1" ] ; then
         install_wordpress
         setup_wordpress
-        install_wpcli
-        ddn_wordpress
 
         if [ "x$TESTPASSWORDERROR" = "x1" ] ; then
             echoY "MySQL setup bypassed, can not get root password."
@@ -1582,6 +1580,9 @@ if [ "x$INSTALLWORDPRESS" = "x1" ] ; then
 
     config_server_wp
     echo "mysql root password is [$ROOTPASSWORD]." >> $SERVER_ROOT/password
+
+    install_wpcli
+    ddn_wordpress
 else
     #normal ols installation without wordpress
     config_server
